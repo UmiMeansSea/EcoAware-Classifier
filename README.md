@@ -1,4 +1,4 @@
-# EcoAware-Classifier 🌱
+# EcoAware-Classifier 
 
 A lightweight PyTorch image classifier (CIFAR-10) designed for energy efficiency, carbon footprint tracking, and frugal AI principles. 
 
@@ -6,7 +6,7 @@ A lightweight PyTorch image classifier (CIFAR-10) designed for energy efficiency
 
 ---
 
-## 🚀 Features
+##  Features
 
 - **Convolutional Neural Network (SimpleCNN)**: Built using PyTorch for classifying 10 object categories in CIFAR-10.
 - **Emissions Tracking**: Integrated with CodeCarbon to measure exact electricity consumption and carbon footprint during training cycles.
@@ -15,7 +15,7 @@ A lightweight PyTorch image classifier (CIFAR-10) designed for energy efficiency
 
 ---
 
-## 🛠️ Project Structure
+## Project Structure
 
 ```text
 EcoAware-Classifier/
@@ -27,7 +27,7 @@ EcoAware-Classifier/
 
 ---
 
-## 📦 Prerequisites & Installation
+##  Prerequisites & Installation
 
 1. **Clone the repository**:
    ```bash
@@ -43,7 +43,7 @@ EcoAware-Classifier/
 
 ---
 
-## ⚡ Usage
+## Usage
 
 Run the classifier script to download the CIFAR-10 dataset (if not already downloaded), train the simple CNN baseline model, and track carbon emissions:
 
@@ -65,7 +65,7 @@ Saved the heavy 32-bit model to 'heavy_model.pth'
 
 ---
 
-## 🔬 Next Steps / Roadmap
+## Next Steps / Roadmap
 
 - [ ] Implement post-training quantization (FP32 to INT8) to compare memory reduction & inference speed.
 - [ ] Measure emissions reduction after applying pruning and quantization techniques.
