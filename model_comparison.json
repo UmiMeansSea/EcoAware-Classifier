@@ -1,0 +1,18 @@
+{
+    "Model": [
+        "Heavy Model (FP32)",
+        "Frugal Model (INT8)"
+    ],
+    "Accuracy (%)": [
+        43.87,
+        43.99
+    ],
+    "Size (KB)": [
+        1052.94,
+        282.58
+    ],
+    "Latency (ms/img)": [
+        0.371,
+        0.364
+    ]
+}
