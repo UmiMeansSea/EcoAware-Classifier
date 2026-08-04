@@ -73,6 +73,6 @@ Saved the heavy 32-bit model to 'heavy_model.pth'
 
 ---
 
-## 📜 License
+##  License
 
 Distributed under the MIT License. See `LICENSE` for more information.
