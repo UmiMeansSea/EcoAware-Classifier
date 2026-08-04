@@ -34,13 +34,12 @@ transform_simple = transforms.Compose([
     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
 ])
 
-# Data Loader for MobileNetV2
+# Data Loader for MobileNetV2 (Resized to 224)
 transform_mobilenet = transforms.Compose([
-    transforms.Resize(224), # FIX: Match the training resize!
+    transforms.Resize(224),
     transforms.ToTensor(),
     transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))
 ])
-
 
 testset_simple = torchvision.datasets.CIFAR10(root='./data', train=False, download=True, transform=transform_simple)
 testloader_simple = torch.utils.data.DataLoader(testset_simple, batch_size=64, shuffle=False)
@@ -104,10 +103,12 @@ if engine != 'none':
 else:
     qconfig_mapping = get_default_qconfig_mapping('fbgemm')
 
-example_input = torch.randn(1, 3, 224, 224)
 
+# Tracing example input updated to 224x224
+example_input = torch.randn(1, 3, 224, 224) 
 prepared_m3 = prepare_fx(m3_base, qconfig_mapping, example_input)
 m3 = convert_fx(prepared_m3)
+
 m3.load_state_dict(torch.load("static_quantized_model.pth", weights_only=True))
 m3.eval()
 
