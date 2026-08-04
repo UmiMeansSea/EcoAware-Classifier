@@ -77,7 +77,8 @@ if os.path.exists("all_models_comparison.json"):
             color="Model", color_discrete_sequence=colors
         )
         fig_acc.update_layout(showlegend=False, xaxis_title="")
-        st.plotly_chart(fig_acc, use_container_width=True)
+        st.plotly_chart(fig_acc, width="stretch")
+
 
     # Chart 2: Size
     with chart_col2:
@@ -87,7 +88,7 @@ if os.path.exists("all_models_comparison.json"):
             color="Model", color_discrete_sequence=colors
         )
         fig_size.update_layout(showlegend=False, xaxis_title="")
-        st.plotly_chart(fig_size, use_container_width=True)
+        st.plotly_chart(fig_size, width="stretch")
 
     # Chart 3: Latency
     with chart_col3:
@@ -97,11 +98,12 @@ if os.path.exists("all_models_comparison.json"):
             color="Model", color_discrete_sequence=colors
         )
         fig_lat.update_layout(showlegend=False, xaxis_title="")
-        st.plotly_chart(fig_lat, use_container_width=True)
+        st.plotly_chart(fig_lat, width="stretch")
 
     # Data Table
     st.markdown("### Raw Comparison Matrix")
-    st.dataframe(df, use_container_width=True)
+    st.dataframe(df, width="stretch")
+
 
     # Portfolio Summary Box
     st.info("""
