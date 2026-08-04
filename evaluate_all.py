@@ -36,9 +36,11 @@ transform_simple = transforms.Compose([
 
 # Data Loader for MobileNetV2
 transform_mobilenet = transforms.Compose([
+    transforms.Resize(224), # FIX: Match the training resize!
     transforms.ToTensor(),
     transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))
 ])
+
 
 testset_simple = torchvision.datasets.CIFAR10(root='./data', train=False, download=True, transform=transform_simple)
 testloader_simple = torch.utils.data.DataLoader(testset_simple, batch_size=64, shuffle=False)
