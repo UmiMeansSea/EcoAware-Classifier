@@ -104,7 +104,8 @@ if engine != 'none':
 else:
     qconfig_mapping = get_default_qconfig_mapping('fbgemm')
 
-example_input = torch.randn(1, 3, 32, 32)
+example_input = torch.randn(1, 3, 224, 224)
+
 prepared_m3 = prepare_fx(m3_base, qconfig_mapping, example_input)
 m3 = convert_fx(prepared_m3)
 m3.load_state_dict(torch.load("static_quantized_model.pth", weights_only=True))
