@@ -1,17 +1,14 @@
 import torch
-import torch.nn as nn
-from torchvision.models import mobilenet_v2
 import torchvision
 import torchvision.transforms as transforms
+import torch.nn as nn
 from torch.ao.quantization.quantize_fx import prepare_fx, convert_fx
 from torch.ao.quantization import get_default_qconfig_mapping
 import os
+from frugal_net import FrugalNet
 
-print("Loading Recycled Model...")
-model = mobilenet_v2()
-model.classifier[1] = nn.Linear(model.last_channel, 10)
-
-# Load your trained weights
+print("Loading Recycled FrugalNet Model...")
+model = FrugalNet()
 model.load_state_dict(torch.load("recycled_model.pth", weights_only=True))
 model.eval()
 
@@ -36,18 +33,15 @@ if backend_engine != 'none':
 else:
     qconfig_mapping = get_default_qconfig_mapping('fbgemm')
 
-
-# Tracing shape updated to 224x224
-example_input = torch.randn(1, 3, 224, 224)
+# Tracing input shape: Native 32x32
+example_input = torch.randn(1, 3, 32, 32)
 prepared_model = prepare_fx(model, qconfig_mapping, example_input)
 
-# The Calibration Phase
-print("Calibrating observers with real data (Crucial for INT8 Accuracy)...")
-
+# Calibration Phase
+print("Calibrating observers with native 32x32 CIFAR-10 images...")
 transform = transforms.Compose([
-    transforms.Resize(224),
     transforms.ToTensor(),
-    transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))
+    transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
 ])
 
 calib_set = torchvision.datasets.CIFAR10(root='./data', train=True, download=False, transform=transform)
@@ -57,7 +51,7 @@ prepared_model.eval()
 with torch.no_grad():
     for i, (images, _) in enumerate(calib_loader):
         prepared_model(images)
-        if i >= 5: # 5 batches for calibration
+        if i >= 10: # 10 batches of calibration
             break
             
 print("Calibration complete!")

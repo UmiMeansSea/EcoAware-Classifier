@@ -1,0 +1,22 @@
+{
+    "Model": [
+        "1. Baseline CNN (FP32)",
+        "2. Dynamic INT8 CNN",
+        "3. Pruned + Static INT8 (FrugalNet)"
+    ],
+    "Accuracy (%)": [
+        43.87,
+        43.99,
+        62.51
+    ],
+    "Size (KB)": [
+        1052.94,
+        282.58,
+        276.0
+    ],
+    "Latency (ms/img)": [
+        0.243,
+        0.255,
+        0.388
+    ]
+}
