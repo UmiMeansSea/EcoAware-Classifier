@@ -108,9 +108,11 @@ if os.path.exists("all_models_comparison.json"):
     # Portfolio Summary Box
     st.info("""
     **Key Master's Thesis Takeaway (*Sobriété Numérique*):**  
-    By applying Transfer Learning (MobileNetV2), Weight Pruning (20%), and Post-Training FX Static Quantization (INT8), 
-    we drastically boost classification accuracy while locking the mathematical operations to pure 8-bit integer math suitable for microcontrollers and edge hardware.
+    By building a custom FrugalNet tailored for 32x32 native images with Batch Normalization, Data Augmentation, 
+    Weight Pruning (20%), and Post-Training FX Static Quantization (INT8), we eliminate redundant computation, 
+    achieve low latency (< 1ms), and compress the model size to under 500 KB while maintaining strong performance on edge devices.
     """)
+
 
 else:
     st.warning("Please run `python evaluate_all.py` first to generate benchmark metrics.")
