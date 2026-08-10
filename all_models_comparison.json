@@ -1,22 +1,42 @@
 {
     "Model": [
-        "1. Baseline CNN (FP32)",
-        "2. Dynamic INT8 CNN",
-        "3. Pruned + Static INT8 (FrugalNet)"
+        "1. Legacy Baseline (FP32)",
+        "2. Legacy Dynamic INT8",
+        "3. Legacy FrugalNet Dyn-INT8",
+        "4. Pipeline FP32 Baseline",
+        "5. Pipeline Pruned 70% (FP32)",
+        "6. Pipeline Pruned + Static INT8"
     ],
     "Accuracy (%)": [
-        43.87,
-        43.99,
-        62.51
+        36.13,
+        36.1,
+        52.38,
+        76.15,
+        74.66,
+        75.48
     ],
     "Size (KB)": [
         1052.94,
         282.58,
-        276.0
+        276.0,
+        2085.93,
+        2086.04,
+        559.53
     ],
     "Latency (ms/img)": [
-        0.201,
-        0.204,
-        0.328
+        0.202,
+        0.205,
+        0.212,
+        0.225,
+        0.216,
+        0.212
+    ],
+    "Stage": [
+        "Legacy",
+        "Legacy",
+        "Legacy",
+        "Pipeline",
+        "Pipeline",
+        "Pipeline"
     ]
 }
