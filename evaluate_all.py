@@ -315,9 +315,9 @@ if os.path.exists("pipeline_int8.pth"):
         "Latency (ms/img)" : round(lat6, 3),
         "Stage"            : "Pipeline",
     })
-    print(f"  acc={acc6:.2f}%  size≈{size6_kb:.1f} KB  lat={lat6:.3f} ms/img")
+    print(f"  acc={acc6:.2f}%  size~{size6_kb:.1f} KB  lat={lat6:.3f} ms/img")
 else:
-    print("\n[6/6] pipeline_int8.pth not found — run frugal_pipeline.py first.")
+    print("\n[6/6] pipeline_int8.pth not found - run frugal_pipeline.py first.")
 
 
 # =============================================================================
