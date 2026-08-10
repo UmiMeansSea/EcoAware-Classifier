@@ -1,3 +1,32 @@
+# EcoAware-Classifier 🌿
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21874631.svg)](https://doi.org/10.5281/zenodo.21874631)
+
+> **Official codebase for the paper:** *Frugal AI: Sustainable Deep Learning Compression via Pruning and Mixed-Precision QAT.*
+
+This repository contains the complete end-to-end pipeline for optimizing a Convolutional Neural Network (CNN) under strict environmental constraints. By combining iterative magnitude pruning with mixed-precision Quantization-Aware Training (QAT), this project achieves extreme edge-deployment efficiency without sacrificing model integrity.
+
+### 🚀 Key Performance Metrics
+* **Compression Ratio:** 3.73x reduction in binary file size (from 2085.93 KB down to 559.53 KB).
+* **Accuracy Retention:** Maintained test accuracy within a 0.67% margin of the FP32 baseline.
+* **Carbon Footprint:** The entire end-to-end optimization pipeline emitted just **12.006 g CO2e**, tracked empirically via CodeCarbon.
+
+### 📖 Read the Paper
+The full research preprint is permanently available on Zenodo. If you use this code or methodology in your own research, please cite it as:
+
+```bibtex
+@misc{karjee2026frugalai,
+  author       = {Karjee, Aniket},
+  title        = {Frugal AI: Sustainable Deep Learning Compression via Pruning and Mixed-Precision QAT},
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.21874631},
+  url          = {https://doi.org/10.5281/zenodo.21874631}
+}
+```
+
+---
+
 # Project Report: Frugal AI – Sustainable Deep Learning Compression via Pruning and Mixed-Precision QAT
 
 ## 1. Executive Summary
